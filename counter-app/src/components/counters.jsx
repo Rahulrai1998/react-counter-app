@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Counter from "./counter";
 
 const Counters = (props) => {
-  const { onRemove, onDelete, onReset, onIncrement, counters, onAddItems,onClearAll } =
-    props;
+  const { onRemove, onDelete, onReset, onIncrement, counters, onAddItems,onClearAll } = props;
     
   return (
     <div
