@@ -20,6 +20,7 @@ ul.nav{
   height: 200px;
   border-bottom-right-radius: 52px;
   border-bottom-left-radius: 52px;
+  flex-wrap: wrap;
 
 
 }
@@ -74,3 +75,4 @@ ul{
     transform: rotate(360deg);
   }
 }
+
