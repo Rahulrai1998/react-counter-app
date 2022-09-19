@@ -1,44 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-
-*{
-  padding: 0;
-  margin: 0;
-}
-
 .App {
   text-align: center;
-  
-
-  
-}
-ul.nav{
-  background: rgb(250, 170, 170);
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  height: 200px;
-  border-bottom-right-radius: 52px;
-  border-bottom-left-radius: 52px;
-  
-
-
-}
-.list{
-  display: block;
-  width: 20%;
-  padding: 80px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.link{
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 2.5rem;
-}
-ul{
-  list-style: none;
 }
 
 .App-logo {
@@ -75,4 +36,3 @@ ul{
     transform: rotate(360deg);
   }
 }
-

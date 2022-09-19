@@ -1,35 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
-import {BrowserRouter as Router , Routes , Route , Link} from 'react-router-dom'
-import Home from './components/page1';
-import Contact from './components/page2';
-import About from './components/page3';
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/page1";
+import Contact from "./components/page2";
+import About from "./components/page3";
+import Profile from "./components/page4";
+import { AuthProvider, useAuth } from "./components/auth";
+import { Login } from "./components/login";
 
 function App() {
+
+  // const auth = useAuth();
+ 
   return (
+    
+    <AuthProvider>
+      <Router>
+      
+        <div className="App">
+          <ul className="nav">
+            <li className="list">
+              <Link className="link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="list">
+              <Link to="/page2" className="link">
+                Contact
+              </Link>
+            </li>
+            <li className="list">
+              <Link to="/page3" className="link">
+                About
+              </Link>
+            </li>
+            <li className="list">
+              <Link to="/page4" className="link">
+                Profile
+              </Link>
+            </li>
+            
+              <li className="list">
+              {!(useAuth.user) && (
+                <Link to="/login" className="link">
+                  Login
+                </Link>)}
+              </li>
+            
+          </ul>
 
-    <Router>
-      <div className='App'>
-        <ul className='nav'>
-          <li className='list'>
-            <Link className='link' to='/'>Home</Link>
-          </li>
-          <li className='list'>
-            <Link to='/page2' className='link' >Contact</Link>
-          </li>
-          <li className='list'>
-            <Link to='/page3' className='link' >About</Link>
-          </li>
-        </ul>
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/page2" element={<Contact />}></Route>
+            <Route exact path="/page3" element={<About />}></Route>
+            <Route exact path="/page4" element={<Profile />}></Route>
+            <Route exact path="/login" element={<Login />}></Route>
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
 
-        <Routes>
-          <Route exact path='/' element={<Home/>}></Route>
-          <Route exact path='/page2' element={<Contact/>}></Route>
-          <Route exact path='/page3' element={<About/>}></Route>
-        </Routes>
-
-      </div>
-    </Router>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -46,7 +76,6 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    
   );
 }
 
