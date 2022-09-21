@@ -7,18 +7,20 @@ import About from "./components/page3";
 import Profile from "./components/page4";
 import { AuthProvider, useAuth } from "./components/auth";
 import { Login } from "./components/login";
+import { Navbar } from "./components/navbar";
+import { Logout } from "./components/logout";
+import RequireAuth from "./components/requireAuth";
 
 function App() {
-
   // const auth = useAuth();
- 
+
   return (
-    
     <AuthProvider>
       <Router>
-      
         <div className="App">
-          <ul className="nav">
+
+          <Navbar/>
+          {/* <ul className="nav">
             <li className="list">
               <Link className="link" to="/">
                 Home
@@ -39,22 +41,24 @@ function App() {
                 Profile
               </Link>
             </li>
-            
+            {console.log(useAuth.user)}
+            {!useAuth.user && (
               <li className="list">
-              {!(useAuth.user) && (
                 <Link to="/login" className="link">
                   Login
-                </Link>)}
+                </Link>
               </li>
-            
-          </ul>
+            )}
+          </ul> */}
+
 
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/page2" element={<Contact />}></Route>
             <Route exact path="/page3" element={<About />}></Route>
-            <Route exact path="/page4" element={<Profile />}></Route>
+            <Route exact path="/page4" element={<RequireAuth><Profile /></RequireAuth>}></Route>
             <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/logout" element={<Logout />}></Route>
           </Routes>
         </div>
       </Router>
