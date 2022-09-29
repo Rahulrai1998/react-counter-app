@@ -23,7 +23,7 @@ const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
   padding: "5px 10px",
   borderRadius: theme.shape.borderRadius,
-  width: "35%",
+  width: "45%",
 }));
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -82,7 +82,7 @@ const Navbar = () => {
             sx={{ width: 30, height: 30 ,cursor:"pointer"}}
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
-          <Typography variant="span">User</Typography>
+          <Typography variant="span" sx={{fontWeight:"300" , fontSize:"15px"}}>Blue Star</Typography>
         </UserBox>
       </StyledToolbar>
       <Menu
