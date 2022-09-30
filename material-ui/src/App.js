@@ -27,6 +27,7 @@ import Friends from "./components/Friends";
 import Profile from "./components/Profile";
 import Groups from "./components/Groups";
 import Setting from "./components/Setting";
+const x = 10
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -51,13 +52,16 @@ function App() {
 
             <Routes>
               <Route exact path="/" element={<Feed />}></Route>
-              <Route exact path="/Pages" element={<Pages />}></Route>
+              <Route exact path="/Pages" element={<Pages />}>
+
+              </Route>
               <Route exact path="/Groups" element={<Groups />}></Route>
               <Route exact path="/Marketplace" element={<Marketplace />}></Route>
               <Route exact path="/Friends" element={<Friends />}></Route>
               <Route exact path="/Setting" element={<Setting />}></Route>
               <Route exact path="/Profile" element={<Profile />}></Route>
-            </Routes> </Router>
+            </Routes> 
+          </Router>
 
           
 
