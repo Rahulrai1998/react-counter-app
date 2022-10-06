@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import styled from "@emotion/styled";
+import GroupItem from "./GroupItems";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -16,15 +17,15 @@ const Groups = () => {
     <Box flex={6} p={3}>
         <Typography variant="h5" sx={{padding:"10px"}}>All Groups</Typography>
       <Stack spacing={2}>
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
+        <Item><GroupItem/></Item>
       </Stack>
     </Box>
   );
