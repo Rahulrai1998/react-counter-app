@@ -2,10 +2,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
-import React, {useState } from "react";
+import React, { useState } from "react";
 
-let i = 0 ;
-
+let i = 0;
 
 const App = () => {
   // state = {
@@ -18,89 +17,79 @@ const App = () => {
   //   ],
   // };
 
-
-  const [state , setState] = useState({
-
-    counters: []
-
-  })
-
-  
-const handleIncrement = (counter) => {
-  // console.log(counter)
-
-  const counters = [...state.counters];
-  const index = counters.indexOf(counter);
-  counters[index] = { ...counter };
-  counters[index].value++;
-  setState({ counters });
-};
-
-const handleRemove = (counter) => {
-  const counters = [...state.counters];
-  // console.log(counter)
-  const index = counters.indexOf(counter);
-  counters[index] = { ...counter };
-  if (counters[index].value > 0) {
-    counters[index].value--;
-  }
-  setState({ counters });
-};
-
-const handleReset = () => {
-  const counters = state.counters.map((c) => {
-    c.value = 0;
-    return c;
+  const [state, setState] = useState({
+    counters: [],
   });
-  setState({ counters });
+
+  const handleIncrement = (counter) => {
+    // console.log(counter)
+
+    const counters = [...state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value++;
+    setState({ counters });
+  };
+
+  const handleRemove = (counter) => {
+    const counters = [...state.counters];
+    // console.log(counter)
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    if (counters[index].value > 0) {
+      counters[index].value--;
+    }
+    setState({ counters });
+  };
+
+  const handleReset = () => {
+    const counters = state.counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    setState({ counters });
+  };
+
+  const handleDelete = (counterId) => {
+    const counters = state.counters.filter((c) => c.id !== counterId);
+    setState({ counters });
+  };
+
+  const handleClearAll = () => {
+    const counters = [...state.counters];
+    counters.length = 0;
+    setState({ counters });
+  };
+
+  // Add new components
+  const handleAddItems = () => {
+    const counters = [...state.counters];
+    let v = 1;
+    i++;
+    counters.push({ id: i, value: v });
+    setState({ counters });
+  };
+
+  return (
+    <React.Fragment>
+      <Navbar
+        totalCounters={state.counters.filter((c) => c.value > 0).length}
+      />
+      <main className="container">
+        <Counters
+          counters={state.counters}
+          onReset={handleReset}
+          onIncrement={handleIncrement}
+          onDelete={handleDelete}
+          onRemove={handleRemove}
+          onAddItems={handleAddItems}
+          onClearAll={handleClearAll}
+        />
+      </main>
+    </React.Fragment>
+  );
 };
 
-const handleDelete = (counterId) => {
-  const counters = state.counters.filter((c) => c.id !== counterId);
-  setState({ counters });
-};
-
-const handleClearAll=()=>{
-  const counters = [...state.counters];
-  counters.length = 0;
-  setState({ counters });
-  
-}
-
-
-
-// Add new components
-const handleAddItems=()=>{
-
-  const counters = [...state.counters];
-  let v = 1 ; i++; 
-  counters.push({id:i , value:v})
-  setState({counters})
-
-}
-
-  
-
-  
-return (
-      <React.Fragment>
-        <Navbar totalCounters = {state.counters.filter(c=>c.value > 0).length}/>
-        <main className="container">
-          <Counters
-            counters={state.counters}
-            onReset={handleReset}
-            onIncrement={handleIncrement}
-            onDelete={handleDelete}
-            onRemove={handleRemove}
-            onAddItems={handleAddItems}
-            onClearAll = {handleClearAll}
-          />
-        </main>
-      </React.Fragment>
-    );
-  
-}
- 
 export default App;
 
 // class App extends Component {
@@ -113,8 +102,6 @@ export default App;
 //       // { id: 5, value: 0 },
 //     ],
 //   };
-
-  
 
 //   handleIncrement = (counter) => {
 //     // console.log(counter)
@@ -154,21 +141,18 @@ export default App;
 //     const counters = [...this.state.counters];
 //     counters.length = 0;
 //     this.setState({ counters });
-    
-//   }
 
-  
+//   }
 
 //   // Add new components
 //   handleAddItems=()=>{
 
 //     const counters = [...this.state.counters];
-//     let v = 1 ; i++; 
+//     let v = 1 ; i++;
 //     counters.push({id:i , value:v})
 //     this.setState({counters})
 
 //   }
-
 
 //   render(){
 //     return (
@@ -188,9 +172,7 @@ export default App;
 //       </React.Fragment>
 //     );
 //   }
-  
 
 //   }
 
- 
 // export default App;
