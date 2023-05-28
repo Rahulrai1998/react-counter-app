@@ -14,7 +14,6 @@ import { Box } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import Share from "./Share";
-import Share from "./Share";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -49,13 +48,11 @@ const UserBox = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [open, setOpen] = useState(false);
 
   return (
     <AppBar position="sticky">
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          GOSSIP
           GOSSIP
         </Typography>
         <SportsVolleyball
@@ -63,29 +60,23 @@ const Navbar = () => {
         />
         <Search>
           <InputBase sx={{ width: "100%" }} placeholder="search..." />
-          <InputBase sx={{ width: "100%" }} placeholder="search..." />
         </Search>
         <Icons>
           <Badge badgeContent={4} color="error">
             <Mail cursor="pointer" />
-            <Mail cursor="pointer" />
           </Badge>
           <Badge badgeContent={4} color="error">
             <Notifications cursor="pointer" />
-            <Notifications cursor="pointer" />
           </Badge>
           <Avatar
             sx={{ width: 30, height: 30, cursor: "pointer" }}
-            sx={{ width: 30, height: 30, cursor: "pointer" }}
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            onClick={(e) => setOpen(true)}
             onClick={(e) => setOpen(true)}
           />
         </Icons>
-        <UserBox onClick={(e) => setOpen(true)}>
+
         <UserBox onClick={(e) => setOpen(true)}>
           <Avatar
-            sx={{ width: 30, height: 30, cursor: "pointer" }}
             sx={{ width: 30, height: 30, cursor: "pointer" }}
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
@@ -109,7 +100,6 @@ const Navbar = () => {
         // anchorEl={anchorEl}
         open={open}
         onClose={(e) => setOpen(false)}
-        onClose={(e) => setOpen(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",
@@ -125,8 +115,6 @@ const Navbar = () => {
           <Share />
         </MenuItem>
         <MenuItem>Logout</MenuItem>
-
-        
       </Menu>
     </AppBar>
   );
