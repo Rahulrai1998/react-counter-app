@@ -1,11 +1,12 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React from "react";
+import { Box } from "@mui/material";
+import Share from "./Share";
 const Profile = () => {
-    return ( <Box flex={6} p={3}>
+  return (
+    <Box flex={6} p={3}>
+      <Share />
+    </Box>
+  );
+};
 
-        Profile
-
-    </Box> );
-}
- 
 export default Profile;
